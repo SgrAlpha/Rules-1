@@ -1,6 +1,8 @@
 name: Auto Update China IPs
 
 on:
+  workflow_dispatch:
+    inputs: {}
   schedule:
     - cron: '0 0 * * *'
 
@@ -9,16 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Update IPs
       run: |
         wget -c http://ftp.apnic.net/stats/apnic/delegated-apnic-latest
         cat delegated-apnic-latest | awk -F '|' '/CN/&&/ipv4/ {print $4 "/" 32-log($5)/log(2)}' > raw_ips.txt
-        echo "# > Domestic IPs" > Surge/Surge 3/Provider/Domestic IPs.list
-        echo "payload:" > Clash/Provider/Domestic IPs.yaml
-        cat raw_ips.txt | awk '{print "IP-CIDR,"$1",no-resolve"}' >> Surge/Surge 3/Provider/Domestic IPs.list
-        cat raw_ips.txt | awk '{print "  - "$1}' >> Clash/Provider/Domestic IPs.yaml
+        echo "# > Domestic IPs" > "Surge/Surge 3/Provider/Domestic IPs.list"
+        cat raw_ips.txt | awk '{print "IP-CIDR,"$1",no-resolve"}' >> "Surge/Surge 3/Provider/Domestic IPs.list"
+        echo "payload:" > "Clash/Provider/Domestic IPs.yaml"
+        cat raw_ips.txt | awk '{print "  - IP-CIDR,"$1}' >> "Clash/Provider/Domestic IPs.yaml"
 
     - name: Commit and push
       run: |
