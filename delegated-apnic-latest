@@ -82287,3 +82287,12 @@ apnic|CN|ipv6|240f:4000::|24|20190709|allocated
 apnic|CN|ipv6|240f:8000::|24|20150427|allocated
 apnic|CN|ipv6|240f:c000::|24|20190917|allocated
 apnic|SG|ipv6|2410::|17|20241108|allocated
+cated
+apnic|CN|ipv6|240e:1000::|20|20181227|allocated
+apnic|CN|ipv6|240e:2000::|19|20181227|allocated
+apnic|JP|ipv6|240f::|24|20101224|allocated
+apnic|JP|ipv6|240f:100::|24|20171027|allocated
+apnic|CN|ipv6|240f:4000::|24|20190709|allocated
+apnic|CN|ipv6|240f:8000::|24|20150427|allocated
+apnic|CN|ipv6|240f:c000::|24|20190917|allocated
+apnic|SG|ipv6|2410::|17|20241108|allocated
